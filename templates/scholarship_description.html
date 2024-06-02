@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Description</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .details {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .apply-button {
+            display: inline-block;
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .apply-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">{{ scholarship.title }}</div>
+        <div class="details"><strong>Provider:</strong> {{ scholarship.provider }}</div>
+        <div class="details"><strong>Eligibility Description:</strong> {{ scholarship.eligibility_description }}</div>
+        <div class="details"><strong>Criteria:</strong> {{ scholarship.criteria }}</div>
+        <div class="details"><strong>Award:</strong> {{ scholarship.award }}</div>
+        <div class="details"><strong>Deadline:</strong> {{ scholarship.deadline }}</div>
+        <div class="details"><strong>State:</strong> {{ scholarship.state }}</div>
+        <a href="{{ scholarship.url }}" target="_blank" class="apply-button">Apply Now</a>
+    </div>
+</body>
+</html>

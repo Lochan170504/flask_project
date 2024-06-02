@@ -1,0 +1,112 @@
+{
+    "intents":[
+        {
+            "tag":"greeting",
+            "patterns":[
+                "Hi",
+                "Hey there",
+                "What's up",
+                "Good Morning",
+                "Hello",
+                "Hey Hababa"
+            ],
+            "responses":[
+                "Hello! How can I help you today?",
+                 "Greetings! What can I do for you?",
+                  "Not much! How about you? How can I assist you?", 
+                  "Good morning! Ready to tackle the day. How can I assist you?", 
+                "Howdy! What brings you here today?" 
+            ]
+
+          },
+          {
+            "tag":"goodbye",
+            "patterns":[
+                        "GoodBye",
+                        "Thank you",
+                        "See your later",
+                        "Farewell",
+                        "Bye"
+            ],
+            "responses":[
+                "Goodbye! Have a great day!", 
+                "See you later! If you need anything else, feel free to ask.", 
+                "Farewell! It was a pleasure assisting you.", 
+                "Bye! If you have more questions, don't hesitate to return.", 
+                "Take care! Until next time."
+
+            ]
+           },
+        
+            {
+                "tag": "eligibility_criteria",
+                "patterns": ["What are the eligibility criteria for the scholarships?", "Who is eligible for the scholarships?"],
+                "responses": ["The eligibility criteria vary for each scholarship. It could include factors such as academic performance, financial need, nationality, field of study, and more."]
+              },
+              {
+                "tag": "application_process",
+                "patterns": ["How do I apply for the scholarships?", "What is the application process?"],
+                "responses": ["To apply for scholarships, you typically need to fill out an application form and submit required documents such as transcripts, essays, letters of recommendation, etc. The specific process may vary for each scholarship."]
+              },
+              {
+                "tag": "gpa_requirements",
+                "patterns": ["Are there any specific GPA or academic requirements?", "What GPA do I need to qualify for the scholarships?"],
+                "responses": ["Some scholarships may have GPA requirements, while others may not. It's important to review the eligibility criteria for each scholarship to see if there are specific academic requirements."]
+              },
+              {
+                "tag": "international_students",
+                "patterns": ["Can international students apply for these scholarships?"],
+                "responses": ["Yes, some scholarships may be open to international students. However, eligibility criteria may vary, so it's essential to check the requirements for each scholarship."]
+              },
+              {
+                "tag": "deadlines",
+                "patterns": ["What are the deadlines for application submissions?"],
+                "responses": ["Application deadlines vary for each scholarship. Be sure to check the deadline for each scholarship you're interested in and plan your application accordingly."]
+              },
+              {
+                "tag": "selection_criteria",
+                "patterns": ["How are scholarship recipients selected?"],
+                "responses": ["Scholarship recipients are typically selected based on various criteria, including academic merit, financial need, essays, letters of recommendation, interviews, and other factors, depending on the scholarship."]
+              },
+              {
+                "tag": "essay_requirements",
+                "patterns": ["Are there any essay or interview requirements for the application?"],
+                "responses": ["Some scholarships may require essays, interviews, or both as part of the application process. Make sure to carefully review the application requirements for each scholarship."]
+              },
+              {
+                "tag": "fields_of_study",
+                "patterns": ["Are there scholarships available for specific fields of study?"],
+                "responses": ["Yes, there are scholarships available for various fields of study, including STEM, arts, humanities, business, healthcare, and more."]
+              },
+              {
+                "tag": "financial_need",
+                "patterns": ["Do I need to demonstrate financial need to qualify for these scholarships?"],
+                "responses": ["Some scholarships are based on financial need, while others may not require it. Check the eligibility criteria for each scholarship to see if financial need is a consideration."]
+              },
+              {
+                "tag": "undergraduate_specific",
+                "patterns": ["Are there scholarships specifically for undergraduate students?"],
+                "responses": ["Yes, there are scholarships specifically targeted towards undergraduate students."]
+              },
+              {
+                "tag": "graduate_specific",
+                "patterns": ["Are there scholarships specifically for graduate or postgraduate students?"],
+                "responses": ["Yes, there are scholarships available for graduate or postgraduate students."]
+              },
+              {
+                "tag": "renewable_scholarships",
+                "patterns": ["Are there renewable scholarships, or do I need to reapply each year?"],
+                "responses": ["Some scholarships are renewable, meaning recipients may receive funding for multiple years without reapplying. Others may require annual renewal."]
+            },
+            {
+              "tag": "disabilities",
+              "patterns": ["Are there scholarships available for students with disabilities?"],
+              "responses": ["Yes, there are scholarships specifically for students with disabilities."]
+            }
+    
+    ]
+}
+       
+
+
+           

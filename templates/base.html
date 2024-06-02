@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Unifund/Home</title>
+    <style>
+        *{
+        padding:0;
+        margin:0;
+        box-sizing:border-box;
+        scroll-behaviour:smooth;
+        }
+        body {
+            min-height: 100vh;
+            background-color: white;
+            background-image: url('static/images/background4.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: sans-serif;
+        }
+        header
+        {
+        position:relative;
+        top:0;
+        left:0;
+        width:100%;
+        padding:20px 80px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        z-index:99;
+        }
+        .logo
+        {
+        font-size:2em;
+        color:white;
+        user-select:none;
+        }
+        .navigation {
+    display: inline-block; /* Ensures the navigation bar and language selection form appear in one line */
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 20px;
+}
+
+.navigation a::after {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform: scalex(0);
+    transition: transform 0.5s;
+}
+
+.navigation a:hover::after {
+    transform: scalex(1);
+}
+
+.navigation .btnlogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid white;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 700;
+    margin-left: 20px; /* Adjusted margin to match the navigation links */
+    transition: 0.5s;
+}
+
+.navigation .btnlogin-popup:hover {
+    background: white;
+    color: #162938;
+}
+
+form {
+    display: inline-block; /* Ensures the language selection form appears in one line with the navigation bar */
+    margin-left: 20px; /* Adjusted margin to separate it from the navigation links */
+}
+
+label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+select {
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Style for translated content display */
+#translated_content {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+        .scholarship-form
+        {
+        position:absolute;
+        top:80px;
+        left:20px;
+        margin-top:190px;
+        margin-left:55px;
+        padding:45px;
+        
+        box-shadow:0 0 10px rgba(0,0,0,0.1);
+        
+        }
+        .scholarship-form label
+        {
+        display:block;
+        font-weight:bold;
+        font-size:22.5px;
+        margin-bottom:5px;
+        color:white;
+        margin-top:3.25px;
+        }
+        .scholarship-form select
+        {
+        width:150%;
+        padding:10px;
+        border:1px solid #ccc;
+        border-radius:5px;
+        box-sizing:border-box;
+        }
+        .submit-btn
+        {
+        width:115px;
+        height:40px;
+        background:transparent;
+        border:1px solid white;
+        outline:none;
+        border-radius:6px;
+        curser:pointer;
+        font-size:1em;
+        color:#fff;
+        font-weight:500;
+        margin-left:45px;
+        margin-top:20px;
+        transition:.5s;
+        font-weight:bold;
+        }
+        .submit-btn:hover
+        {
+        background:white;
+        color:#162938
+        }
+        .image-container
+        {
+        position:absolute;
+        top:150px;
+        right:50px;
+        }
+        .container
+        {
+        position:relative;
+        }
+        .quota1
+        {
+        position:absolute;
+        top:55px;
+        left:120px;
+        color:white;
+        font-size:45px;
+        font-weight:bold;
+        }
+        .quota2
+        {
+        position:absolute;
+        top:115px;
+        left:120px;
+        color:white;
+        font-size:40px;
+        font-weight:bold;
+        }
+        .quota3
+        {
+        position:absolute;
+        top:175px;
+        left:120px;
+        color:white;
+        font-size:20px;
+        font-weight:bold;
+        }
+        .wrapper
+        {
+        margin-top:40px;
+        margin-left:120px;
+        max-height:150px;
+        border:2px solid white;
+        display:flex;
+        overflow-x:auto; 
+        overflow-y: hidden;
+        white-space: nowrap;
+        width:80%;
+        }
+        .wrapper::-webkit-scrollbar
+        {
+        width:300;
+        }
+        .wrapper-steps
+        {
+        font-weight:bold;
+        color:white;
+        text-align:center;
+        font-size:25px;
+        margin-top:550px;
+        margin-left:120px;
+        }
+        .wrapper .item{
+        min-width:250px;
+        height:250px;
+        line-height:45px;
+        text-align:center;
+        background-color:white;
+        margin-right:2px;
+        font-size:15px;
+        }
+        .accounment-container
+        {
+         font-family: Arial, Helvetica, sans-serif;
+        margin-top:50px;
+        margin-left:120px;
+          color: #333;
+          padding: 20px;
+        background-color:transparent;
+          border: 1px solid #ccc;
+          overflow-y: scroll;
+          height: 200px;
+        width:80%;
+        
+        }
+        .announment-heading
+        {
+        text-align:center;
+        font-weight:bold;
+        margin-bottom:35px;
+        font-size:25px;
+        color:white;
+        text-decoration:underline;
+        text-decoration-thickness:3px;
+        }
+        .accounment
+        {
+        position:relative;
+        width:100%;
+        color:white;
+        animation:scroll-up 20s linear infinite;
+        white-space:nowrap;
+        font-size:15px;
+        font-weight:bold;
+        padding:5px 0;
+        
+        }
+        @keyframes scroll-up
+        {
+        0%{transform:translateY(100%);}
+        100%{transform:translateY(-100%);}
+        }
+        .acknowlegment-container
+        {
+         font-family: Arial, Helvetica, sans-serif;
+        margin-top:90px;
+        margin-left:60px;
+          color: #333;
+          padding: 20px;
+        background-color:transparent;
+        border: 1px solid #ccc;
+overflow-y: scroll;
+  height: 240px;
+width:90%;
+border-radius:10px;
+}
+.Note
+{
+font-weight:bold;
+color:white;
+text-decoration:underline;
+font-size:25px;
+margin-left:500px;
+}
+.acknowlegment-descripation
+{
+color: white;
+font-size:15px;
+font-weight:bold;
+}
+.acknowlegment-descripation a
+{
+width:115px;
+height:40px;
+background:transparent;
+border:2px solid white;
+outline:none;
+border-radius:6px;
+curser:pointer;
+font-size:1em;
+color:#fff;
+font-weight:500;
+margin-left:25px;
+margin-top:20px;
+transition:.5s;
+font-weight:bold;
+text-decoration:none;
+}
+.acknowlegment-descripation a:hover
+{
+background:white;
+color:#162938
+}
+.gallery
+{
+width:900px;
+display:flex;
+overflow-x:scroll;
+}
+.gallery div
+{
+width:100%;
+display:grid;
+grid-template-columns:auto auto auto;
+grid-gap:20px;
+padding:10px;
+flex:none;
+}
+.gallery div img
+{
+width:100%;
+filter:gravescale(100%);
+transition:transform 0.5s;
+}
+.gallery-wrap{
+display:flex;
+align-items:center;
+justify-content:center;
+margin:10% auto;
+}
+#backBtn,#nextBtn
+{
+width:50px;
+cursor:pointer;
+margin:40px;
+}
+.gallery div img:hover
+{
+filter:grayscale(0);
+cursor:pointer;
+transform:scale(1.1);
+}
+@keyframes scrollRight
+{
+0%{transform:translateX(0);}
+100%{transform:translateX(-100);}
+}
+.gallery div img{
+animation:scrollRight 3s linear infinite;
+}
+-gallery::webkit-scrollbar{
+display:none;
+}
+.provider
+{
+margin-top:30px;
+margin-left:120px;
+max-height:150px;
+border:2px solid white;
+display:flex;
+overflow-x:auto;
+overflow-y:hidden;
+white-space:nowrap;
+width:80%;
+}
+.provider::-webkit-scrollbar
+{
+width:300;
+}
+.provider-name
+{
+font-weight:bold;
+color:white;
+text-align:center;
+font-size:25px;
+margin-top:110px;
+margin-left:120px;
+}
+.provider .p1{
+min-width:250px;
+height:250px;
+line-height:45px;
+text-align:center;
+background-color:white;
+margin-right:2px;
+font-size:15px;
+font-family:cursive;
+}
+
+  footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+}
+</style>
+</style>
+<script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate" async></script>
+<script>
+
+function loadGoogleTranslate() 
+{
+new google.translate.TranslateElement({
+includedLanguages:'en,kn,ta,te,ml,as,bn,brx,doi,gu,ks,kok,mai,mni,mr,ne,or,pa,sa,sat,sd,ur,trp,tcy,kha,bho,raj,wbr,kfr,gbm,hne,hi',
+layout:google.translate.TranslateElement.InlineLayout.SIMPLE,
+autoDisplay:false
+},'myid');
+}
+ document.addEventListener('DOMContentLoaded', loadGoogleTranslate);
+
+        function changeLanguage(select) {
+            var languageCode = select.value;
+            var translateElement = new google.translate.TranslateElement({ pageLanguage: 'en' });
+            translateElement.showWidget({ layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'myid');
+            translateElement.translatePage(languageCode);
+        }
+</script>
+
+
+</head>
+<body>
+<header>
+<h2 class="logo">Unifund</h2>
+<nav class="navigation">
+<a href="base.html">Home</a>
+<a href="#">About Us</a>
+<a href="#">Content</a>
+<a href="#">Services</a>
+<a href="logining.php" class="link-style">
+<button class="btnlogin-popup">Login</button>
+</a>
+</nav>
+</header>
+</div>
+             <div class="container">
+            <h1 class="quota1">Shine your future</h1>
+            <h1 class="quota2">with the Scholarship......</h1></br>
+<h5 class="quota3">Connecting Scholarship Seekers with Scholarship Providers</h5>
+</div>
+            <main>
+                <section class="scholarship-form">
+                    <form action="/process_form" method="post">
+                        <label for="graduation">Your Present Class</label>
+                       
+                        <select id="graduation" name="graduation">
+                            <option value="">---Select Class---</option>
+                            <option value="Class 1 to PG">Class 1 to PG</option>
+                           
+                            <option value="Undergraduate/Postgraduate">Undergraduate/Postgraduate</option>
+                            <option value="Postgraduate/Ph.D">Postgraduate/Ph.D</option>
+                        </select>
+                        <br>
+                        <label for="gender">Your Gender</label>
+                        <select id="gender" name="gender">
+                            <option value="">---Select Gender---</option>
+                            <option value="Female">Female</option>
+                            <option value="All">Male/All</option>
+                        </select>
+                        <br>
+                        <label for="State">State</label>
+                        <select id="State" name="State">
+                            <option value="">---Select State---</option>
+<option value="Karnataka">Karnataka</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+<option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Rajasthan">Rajasthan</option>
+
+                        </select>
+                        <br>
+                        <button class="submit-btn">Submit</button>
+                    </form>
+                </section>
+            </main>
+        </div>
+<div class="image-container">
+<img src="static/images/scho.webp">
+</div>
+<div class="container">
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">Chat support</h4>
+                    <p class="chatbox__description--header">Hi. My name is Sam. How can I help you?</p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="Write a message...">
+                <button class="chatbox__send--footer send__button">Send</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" /></button>
+        </div>
+    </div>
+</div>
+
+    <script>
+        $SCRIPT_ROOT = {{ request.script_root|tojson }};
+    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+    <h3 class="wrapper-steps">Step to Apply the Scholarship:</h3>
+    <div class="wrapper">
+    <div class="item">Step 1:</br>Select your Class,Gender,State</div>
+    <div class="item">Step 2:</br>Click Submit Button</div>
+    <p class="item">Step 3:</br>Select one of scholarship infront</br> of the screen</p>
+    <div class="item">Step 4:</br>Click View Scholarship</div>
+    <div class="item">Step 5:</br>Check eligibility cretica and </br>click apply now</div>
+    </div>
+    <div class="accounment-container">
+    <div class="announment-heading">
+    Important Announments</div>
+    <div class="accounment">
+    APPLICATIONS ARE OPEN FOR THE AADHAR KAUSHAL SCHOLARSHIP PROGRAM FOR YOUTH WITH DISABILITIES! </br>STUDENTS WITH PHYSICAL DISABILITIES ENROLLED IN GENERAL OR PROFESSIONAL UNDERGRADUATE COURSES ACROSS THE COUNTRY</br> CAN APPLY TILL JULY 23, 2024.
+    </div>
+    <div class="accounment">
+        Get Up to 90%* Instant Scholarship
+        For 8th to 12th studying & 12th
+        Passed students
+    </div>
+    <div class="accounment">
+        Online Application is closed for SSP Pre-matric(only for 9th &10th) Scholarship 2022-23.
+    </div>
+    <div class="accounment">
+        THE LAST DATE TO APPLY FOR PRE-MATRIC SCHOLARSHIP UNDER SSP IS EXTENDED UPTO 21/07/2022
+    </div>
+    <div class="accounment">
+        National Scholarship Portal (NSP) Notification 2021-22
+    </div>
+    <div class="accounment">
+        Corrigendum with regards to Public Notice dated 15.5.2024 regarding Scholarship for Indian Students by Kingdom of Morocco for the Academic Year 2024-25   (Friday, 24 May 2024 - 12:59pm) 
+    </div>
+    <div class="accounment">
+        Public Notice for Japanese Government MEXT Scholarships for Undergraduate, College of Technology and Specialized Training College   (Tuesday, 14 May 2024 - 12:46pm) 
+    </div>
+    <div class="accounment">
+        List of Top Class Schools (IXth Class) for PM YASASVI Top Class School Scheme
+    </div>
+    <div class="accounment">
+        Verify linked mobile no. with Aadhaar
+    </div>
+    <div class="accounment">
+        Students are advised to:
+        1.    Keep Aadhaar ready</br>
+        2.    Link mobile no. with Aadhaar</br>
+       3.    Seed bank A/C with
+    </div>
+    </div>
+    <div class="gallery-wrap">
+    <img src="static/images/backBtn.jpg" id="backBtn">
+    <div class="gallery">
+    
+    <div><span><img src="static/images/image1.webp"></span></div>
+    <div><span><img src="static/images/image2.webp"></span></div>
+    <div><span><img src="static/images/image3.webp"></span></div>
+    
+    <div><span><img src="static/images/image4.webp"></span></div>
+    <div><span><img src="static/images/image5.webp"></span></div>
+    <div><span><img src="static/images/image6.webp"></span></div>
+    
+    
+    <div><span><img src="static/images/image7.webp"></span></div>
+    <div><span><img src="static/images/image8.webp"></span></div>
+    <div><span><img src="static/images/image9.webp"></span></div>
+    
+    </div>
+    <img src="static/images/nextBtn.jpg" id="nextBtn">
+    </div>
+    <div class="acknowlegment-container">
+    <div class="Note">Important Notification</div>
+    <div class="acknowlegment-descripation">
+    <p> Dear applicants,</p>
+    </br>
+    <p>We are pleased to announce that the results for the Unifund Scholarship applications are now avaliable for viewing.</p> <p>Please click the link below to check the application status and see if you are selected as a recipient.</p>
+    <p>We thank all appliacnts for their interest and wish you the best of luck in your educational endeavors</p>
+    </br>
+    <p>Sincerely,</p>
+    <p>The Unifund Scholarship Committee</p></br>
+    <a href="result.html">Click here</a>
+    </div>
+    </div>
+    <script>
+    let scrollContainer = document.querySelector(".gallery");
+    let backBtn = document.getElementById("backBtn");
+    let nextBtn = document.getElementById("nextBtn");
+    
+    scrollContainer.addEventListener("wheel", (evt) => { evt.preventDefault();
+    scrollContainer.scrollLeft += evt.deltay;
+    scrollContainer.style.scrollBehavior = "auto";
+});
+nextBtn.addEventListener("click", ()=>{
+scrollContainer.style.scrollBehavior = "smooth";
+scrollContainer.scrollLeft += 900;
+});
+backBtn.addEventListener("click", ()=>{
+scrollContainer.style.scrollBehavior = "smooth";
+scrollContainer.scrollLeft -= 900;
+});
+</script>
+<h3 class="provider-name">Project Done By:</h3>
+<div class="provider">
+<div class="p1">Vishal Prajwal S:</br>20221COM0151</div>
+<div class="p1">Bhuvanesh M</br>20221COM0173</div>
+<p class="p1">Lochan R</br>20221COM0155</p>
+<div class="p1">Manish G</br>20221COM0163</div>
+<div class="p1">Chandan A G</br>20221ECE0238</div>
+<div class="p1">Zaid Ahmad Shariff</br>20221COM0157</div>
+</div>
+</body>
+</html>

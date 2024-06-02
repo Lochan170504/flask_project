@@ -1,0 +1,46 @@
+{
+  "intents": [
+      {
+          "tag": "greeting",
+          "patterns": ["Hello!", "Hi there!", "Hey!", "Greetings!"],
+          "responses": ["Hello! How can I assist you?", "Hi there! What can I help you with?", "Hey! How may I be of service?", "Greetings! How can I assist you today?"]
+      },
+      {
+          "tag": "farewell",
+          "patterns": ["Goodbye", "Bye", "See you later"],
+          "responses": ["Goodbye! Have a great day!", "Farewell! Take care!", "See you later!"]
+      },
+      {
+          "tag": "common_question_1",
+          "patterns": ["What is a scholarship?"],
+          "responses": ["A scholarship is financial aid awarded to students to help them pursue their education."]
+      },
+      {
+          "tag": "common_question_2",
+          "patterns": ["How do I apply for a scholarship?"],
+          "responses": ["To apply for a scholarship, you typically need to complete an application form, provide supporting documents, etc."]
+      },
+      {
+          "tag": "common_question_3",
+          "patterns": ["What are the benefits of receiving a scholarship?"],
+          "responses": ["Receiving a scholarship can help alleviate the financial burden of education, provide recognition for academic achievements, and open up opportunities for further study or research."]
+      },
+      {
+          "tag": "common_question_4",
+          "patterns": ["What is the deadline for scholarship applications?"],
+          "responses": ["Scholarship deadlines vary depending on the program. It's essential to check the specific deadline for each scholarship you're interested in and plan accordingly."]
+      },
+      {
+          "tag": "scholarship",
+          "patterns": ["Inlaks Scholarship"],
+          "responses": ["Here are the details for Inlaks Scholarship:"],
+          "title_questions": ["What is the title of the scholarship?", "Can you provide more details about the scholarship title?", "..."],
+          "eligibility_questions": ["What are the eligibility criteria for Inlaks Scholarship?", "Can you provide details about eligibility for Inlaks Scholarship?", "..."],
+          "deadline_questions": ["What is the deadline for applying to Inlaks Scholarship?", "When is the application deadline for Inlaks Scholarship?", "..."],
+          "test_questions": ["Is there a test requirement for Inlaks Scholarship?", "What type of test is required for Inlaks Scholarship?", "..."],
+          "award_questions": ["What is the award amount for Inlaks Scholarship?", "Can you provide details about the award for Inlaks Scholarship?", "..."],
+          "url_questions": ["What is the URL for more information about Inlaks Scholarship?", "Can you provide the website link for Inlaks Scholarship?", "..."]
+      }
+      
+  ]
+}
